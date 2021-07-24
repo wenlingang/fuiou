@@ -57,8 +57,8 @@ query_params = {
   mchnt_cd: "0002900F0370542",
   term_id: "12345678",
   order_type: "ALIPAY",
-  mchnt_order_no: "2021071114412625524",
-  random_str: "a40b25ddbe20cb5a598209baea31632a",
+  mchnt_order_no: "2021071322392969328",
+  random_str: "4ce7e7c077c30beb1342fc2d7301497b",
 }
 
 query_resp = Fuiou::Service.invoke_common_query(query_params)

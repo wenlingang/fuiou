@@ -13,7 +13,6 @@ module Fuiou
       def rsa_sign(rsa_string)
         rsa = OpenSSL::PKey::RSA.new(Fuiou.ins_private_key)
         sign = rsa.sign(SIGN_TYPE_MD5, rsa_string.encode(ENCODE_TYPE_GBK))
-        Base64.strict_encode64(sign)
         CGI.escape(Base64.strict_encode64(sign))
       end
 

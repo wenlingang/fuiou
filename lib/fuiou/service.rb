@@ -7,8 +7,6 @@ require 'active_support/core_ext/hash/conversions'
 
 module Fuiou
   module Service
-    FUIOU_21_URL = "https://fundwx.fuiou.com/preCreate".freeze
-    FUIOU_30_URL = "https://fundwx.fuiou.com/commonQuery".freeze
     ENCODE_TYPE_GBK = "GBK"
 
     class << self
@@ -17,7 +15,7 @@ module Fuiou
       def invoke_pre_create(params)
         check_required_options(params, INVOKE_PRE_CREATE_REQUIRED_FIELDS)
         payload = xmlify_payload(params)
-        invoke_remote(FUIOU_21_URL, { req: payload })
+        invoke_remote(Fuiou.fuiou_21_url, { req: payload })
       end
 
       INVOKE_COMMON_QUERY_REQUIRED_FIELDS = %i[version ins_cd mchnt_cd term_id order_type mchnt_order_no random_str]
@@ -25,7 +23,7 @@ module Fuiou
       def invoke_common_query(params)
         check_required_options(params, INVOKE_COMMON_QUERY_REQUIRED_FIELDS)
         payload = xmlify_payload(params)
-        invoke_remote(FUIOU_30_URL, { req: payload })
+        invoke_remote(Fuiou.fuiou_30_url, { req: payload })
       end
 
       private
@@ -39,7 +37,7 @@ module Fuiou
             charset: ENCODE_TYPE_GBK
           }
         )
-        Hash.from_xml(CGI.unescape(resp.body))["xml"]
+        Fuiou::Result.parse(resp.body)
       end
 
       def xmlify_payload(params)
