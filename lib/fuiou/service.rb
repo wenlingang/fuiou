@@ -26,6 +26,14 @@ module Fuiou
         invoke_remote(Fuiou.fuiou_30_url, { req: payload })
       end
 
+      INVOKE_HIS_TRADE_QUERY_REQUIRED_FIELDS = %i[version ins_cd mchnt_cd term_id order_type]
+      # 历史订单查询: https://fundwx.fuiou.com/doc/#/scanpay/api?id=_310-%e5%8e%86%e5%8f%b2%e8%ae%a2%e5%8d%95%e6%9f%a5%e8%af%a2
+      def invoke_his_trade_query(params)
+        check_required_options(params, INVOKE_HIS_TRADE_QUERY_REQUIRED_FIELDS)
+        payload = xmlify_payload(params)
+        invoke_remote(Fuiou.his_trade_query_url, { req: payload })
+      end
+
       private
 
       def invoke_remote(url, payload, options = {})
@@ -54,7 +62,7 @@ module Fuiou
         names.each do |name|
           warn("Fuiou Warn: missing required option: #{name}") unless options.has_key?(name)
         end
-      end      
+      end
     end
   end
 end

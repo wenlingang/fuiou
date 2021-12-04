@@ -14,8 +14,9 @@ module Fuiou
     # notify_url 回调通知地址
     # fuiou_21_url 统一下单地址
     # fuiou_30_url 订单查询地址
+    # his_trade_query_url 历史交易查询地址
     attr_accessor :mch_id, :notify_url
     attr_accessor :ins_id, :ins_private_key, :ins_public_key
-    attr_accessor :fuiou_21_url, :fuiou_30_url
+    attr_accessor :fuiou_21_url, :fuiou_30_url, :his_trade_query_url
   end
 end
