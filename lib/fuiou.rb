@@ -17,6 +17,6 @@ module Fuiou
     # his_trade_query_url 历史交易查询地址
     attr_accessor :mch_id, :notify_url
     attr_accessor :ins_id, :ins_private_key, :ins_public_key
-    attr_accessor :fuiou_21_url, :fuiou_30_url, :his_trade_query_url
+    attr_accessor :fuiou_21_url, :fuiou_30_url, :his_trade_query_url, :wx_pre_create_url
   end
 end

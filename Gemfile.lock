@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fuiou (0.1.3)
+    fuiou (0.1.4)
       activesupport (>= 3.2)
       rest-client (>= 2.0.0)
 

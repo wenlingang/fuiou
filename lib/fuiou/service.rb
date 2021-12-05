@@ -34,6 +34,14 @@ module Fuiou
         invoke_remote(Fuiou.his_trade_query_url, { req: payload })
       end
 
+      INVOKE_WX_PRE_CREATE_REQUIRED_FIELDS = %i[version addn_inf ins_cd mchnt_cd term_id random_str goods_des goods_detail goods_tag product_id mchnt_order_no curr_type order_amt term_ip txn_begin_ts notify_url limit_pay trade_type openid sub_openid sub_appid]
+      # 公众号/服务窗统一下单: https://fundwx.fuiou.com/doc/#/scanpay/api?id=_33-%e5%85%ac%e4%bc%97%e5%8f%b7%e6%9c%8d%e5%8a%a1%e7%aa%97%e7%bb%9f%e4%b8%80%e4%b8%8b%e5%8d%95
+      def invoke_wx_pre_create(params)
+        check_required_options(params, INVOKE_WX_PRE_CREATE_REQUIRED_FIELDS)
+        payload = xmlify_payload(params)
+        invoke_remote(Fuiou.wx_pre_create_url, { req: payload })
+      end
+
       private
 
       def invoke_remote(url, payload, options = {})
