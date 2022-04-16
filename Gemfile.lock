@@ -1,19 +1,18 @@
 PATH
   remote: .
   specs:
-    fuiou (0.1.4)
+    fuiou (0.1.5)
       activesupport (>= 3.2)
       rest-client (>= 2.0.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.1.4.1)
+    activesupport (7.0.2.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
-      zeitwerk (~> 2.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     concurrent-ruby (1.1.9)
@@ -25,11 +24,11 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
-    i18n (1.8.10)
+    i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    mime-types (3.3.1)
+    mime-types (3.4.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2021.0901)
+    mime-types-data (3.2022.0105)
     minitest (5.14.4)
     netrc (0.11.0)
     public_suffix (4.0.6)
@@ -49,7 +48,6 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
-    zeitwerk (2.4.2)
 
 PLATFORMS
   x86_64-darwin-20
